@@ -62,8 +62,7 @@ def populate_stats():
     if result == None:
         bs = Stats(5,6,100, 200, 10,10, time)
         session.add(bs)
-        session.commit()
-        session.close()
+        
     else:
         last_updated = result.last_updated
         last_updated_format = str(last_updated.strftime("%Y-%m-%dT%H:%M:%SZ"))
@@ -93,8 +92,8 @@ def populate_stats():
         )
         
         session.add(bs)
-        session.commit()
-        session.close()
+    session.commit()
+    session.close()
     return NoContent, 201
 
 def init_scheduler():
