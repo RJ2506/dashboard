@@ -38,10 +38,10 @@ def get_purchase_item(index):
         for i,msg in enumerate(consumer):
             msg_str = msg.value.decode('utf-8')
             msg = json.loads(msg_str)
-            if i == index:
-                return msg['payload'], 201
-            else:
-                raise ValueError
+            if msg["type"] == "purchase":
+                if i == index:
+                    return msg['payload'], 201
+            
     except:
         logger.error("No more messages found")
 
@@ -62,14 +62,15 @@ def get_search_item(index):
     # index is large and messages are constantly being received!
     consumer = topic.get_simple_consumer(reset_offset_on_start=True,consumer_timeout_ms=1000)
 
-    logger.info("Retrieving buy at index %d" % index)
+    logger.info("Retrieving search at index %d" % index)
 
     try:
         for i,msg in enumerate(consumer):
             msg_str = msg.value.decode('utf-8')
             msg = json.loads(msg_str)
-            if i == index:
-                return msg['payload'], 201
+            if msg["type"] == "search":
+                if i == index:
+                    return msg['payload'], 201
                 
     except:
         logger.error("No more messages found")
