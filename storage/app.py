@@ -86,63 +86,66 @@ def get_search_item(timestamp):
 
 def process_messages():
     """ Process event messages """
-    server = f'{app_config["events"]["hostname"]}:{app_config["events"]["port"]}'
-    client = KafkaClient(hosts=server)
-    topic = client.topics[str.encode(app_config["events"]["topic"])]
 
-
-    # Create a consume on a consumer group, that only reads new messages
-
-    # (uncommitted messages) when the service re-starts (i.e., it doesn't
-    # read all the old messages from the history in the message queue).
-    consumer = topic.get_simple_consumer(consumer_group=b'event_group',reset_offset_on_start=False,auto_offset_reset=OffsetType.LATEST)
-    # This is blocking - it will wait for a new message
-    
     count = 0
-    try:
-        for msg in consumer:
-            msg_str = msg.value.decode('utf-8')
-            msg = json.loads(msg_str)
-            logger.info("Message: %s" % msg)
-            payload = msg["payload"]
+    while count < app_config['log']['max_retry']:
+        try:
+            server = f'{app_config["events"]["hostname"]}:{app_config["events"]["port"]}'
+            client = KafkaClient(hosts=server)
+            topic = client.topics[str.encode(app_config["events"]["topic"])]
 
-            if msg["type"] == "purchase": # Change this to your event type
-                # Store the event1 (i.e., the payload) to the DB
-                session = DB_SESSION()
-                bp = BuyingProducts(
-                    payload["customer_id"],
-                    payload["credit_card"],
-                    payload["price"],
-                    payload["purchased_date"],
-                    payload["transaction_number"],
-                    payload["trace_id"],
-                )
-                session.add(bp)
-                session.commit()
-                session.close()
-            elif msg["type"] == "search": # Change this to your event type
-                # Store the event2 (i.e., the payload) to the DB
-                session = DB_SESSION()
 
-                sp = SearchProducts(
-                    payload["brand_name"],
-                    payload["item_description"],
-                    payload["price"],
-                    payload["product_name"],
-                    payload["quantity_left"],
-                    payload["sales_price"],
-                    payload["trace_id"],
-                )
-                session.add(sp)
-                session.commit()
-                session.close()
-    except:
-        logger.error('connection fail')
-        time.sleep(5)
-        if count <= app_config["log"]["max_retry"]:
+            # Create a consume on a consumer group, that only reads new messages
+
+            # (uncommitted messages) when the service re-starts (i.e., it doesn't
+            # read all the old messages from the history in the message queue).
+            consumer = topic.get_simple_consumer(consumer_group=b'event_group',reset_offset_on_start=False,auto_offset_reset=OffsetType.LATEST)
+        # This is blocking - it will wait for a new message
+        
+        
+            for msg in consumer:
+                msg_str = msg.value.decode('utf-8')
+                msg = json.loads(msg_str)
+                logger.info("Message: %s" % msg)
+                payload = msg["payload"]
+
+                if msg["type"] == "purchase": # Change this to your event type
+                    # Store the event1 (i.e., the payload) to the DB
+                    session = DB_SESSION()
+                    bp = BuyingProducts(
+                        payload["customer_id"],
+                        payload["credit_card"],
+                        payload["price"],
+                        payload["purchased_date"],
+                        payload["transaction_number"],
+                        payload["trace_id"],
+                    )
+                    session.add(bp)
+                    session.commit()
+                    session.close()
+                elif msg["type"] == "search": # Change this to your event type
+                    # Store the event2 (i.e., the payload) to the DB
+                    session = DB_SESSION()
+
+                    sp = SearchProducts(
+                        payload["brand_name"],
+                        payload["item_description"],
+                        payload["price"],
+                        payload["product_name"],
+                        payload["quantity_left"],
+                        payload["sales_price"],
+                        payload["trace_id"],
+                    )
+                    session.add(sp)
+                    session.commit()
+                    session.close()
+        except:
+            logger.error('connection fail')
+            time.sleep(5)
+           
             count += 1
-        # Commit the new message as being read
-    consumer.commit_offsets()
+            # Commit the new message as being read
+        consumer.commit_offsets()
 
     return 200
 
