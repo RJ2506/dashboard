@@ -81,17 +81,18 @@ def populate_stats():
         for item in search_data:
             search_price.append(float(item['price']))
         
-        bs = Stats(
-            len(buy_price),
-            len(search_price),
-            max(buy_price),
-            max(search_price),
-            min(buy_price),
-            min(search_price),
-            time
-        )
-        
-        session.add(bs)
+        if len(buy_price) != 0 and len(search_price) != 0:
+            bs = Stats(
+                len(buy_price),
+                len(search_price),
+                max(buy_price),
+                max(search_price),
+                min(buy_price),
+                min(search_price),
+                time
+            )
+            
+            session.add(bs)
     session.commit()
     session.close()
     return NoContent, 201
