@@ -93,8 +93,8 @@ def populate_stats():
             )
             
             session.add(bs)
-    session.commit()
-    session.close()
+            session.commit()
+            session.close()
     return NoContent, 201
 
 def init_scheduler():
