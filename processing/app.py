@@ -57,7 +57,7 @@ def populate_stats():
     session = DB_SESSION()
     time = datetime.datetime.now()
     result = session.query(Stats).order_by(Stats.last_updated.desc()).first()
-    
+    print(result.to_dict())
 
     if result == None:
         Stats(5,6,100, 200, 10,10, time)
@@ -69,7 +69,7 @@ def populate_stats():
         res_buy = requests.get(app_config['eventstore']['url'] + "/" + "buy" + "?timestamp="+ last_updated_format)
         buy_data = res_buy.json()
         buy_price = []
-       
+        
         
         for item in buy_data:
             buy_price.append(float(item['price']))
