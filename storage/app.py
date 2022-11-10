@@ -113,8 +113,7 @@ def process_messages():
             payload["trace_id"],
         )
         session.add(bp)
-        session.commit()
-        session.close()
+        
     elif msg["type"] == "search": # Change this to your event type
         # Store the event2 (i.e., the payload) to the DB
         session = DB_SESSION()
@@ -129,8 +128,8 @@ def process_messages():
             payload["trace_id"],
         )
         session.add(sp)
-        session.commit()
-        session.close()
+    session.commit()
+    session.close()
     # Commit the new message as being read
     consumer.commit_offsets()
 

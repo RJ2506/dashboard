@@ -1,6 +1,0 @@
-2022-11-09 21:36:46,077 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
-2022-11-09 21:36:46,176 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
-2022-11-09 21:38:51,761 - basicLogger - INFO - Query for Search Items after 2022-09-23T00:31:21Z returns 1 results
-2022-11-09 21:39:05,502 - basicLogger - INFO - Query for purchase item after 2022-09-23T00:31:21Z returns 1 results
-2022-11-09 21:42:11,889 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
-2022-11-09 21:42:11,983 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
