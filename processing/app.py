@@ -81,12 +81,19 @@ def populate_stats():
         
         for item in search_data:
             search_price.append(float(item['price']))
+        if len(buy_price) != 0:
+            max_buy = max(buy_price)
+            min_buy = min(buy_price)
+        else:
+            max_buy = 0
+            min_buy = 0
         
-        max_buy = max(buy_price)
-        max_search = max(search_price)
-        min_buy = min(buy_price)
-        min_search = min(search_price)
-
+        if len(search_price) != 0:
+            max_search = max(search_price)
+            min_search = min(search_price)
+        else:
+            max_search = 0
+            min_search = 0
         if max_buy < result.max_buy_reading:
             max_buy = result.max_buy_reading
         if max_search < result.max_search_reading:
