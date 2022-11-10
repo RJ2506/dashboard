@@ -89,13 +89,14 @@ services:
   
   dashboard:
     build: ../dashboard-ui
-    image: dashboard:13.12.0-alpine
+    image: dashboard:latest
     restart: always
     container_name: dashboard
     ports:
       - "3000:3000"
     expose:
       - "3000"
+    network_mode: "host"
     depends_on:
       - "processing"
       - "audit"
