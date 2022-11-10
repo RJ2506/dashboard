@@ -60,8 +60,8 @@ def populate_stats():
     
 
     if result == None:
-        bs = Stats(5,6,100, 200, 10,10, time)
-        session.add(bs)
+        Stats(5,6,100, 200, 10,10, time)
+  
         
     else:
         last_updated = result.last_updated
