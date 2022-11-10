@@ -1,0 +1,55 @@
+2022-11-02 22:17:14,118 - basicLogger - INFO - Retrieving buy at index 1
+2022-11-02 22:17:14,199 - basicLogger - ERROR - No more messages found
+2022-11-02 22:17:14,201 - basicLogger - ERROR - Could not find buy at index 1
+2022-11-02 22:17:21,467 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:17:21,542 - basicLogger - ERROR - No more messages found
+2022-11-02 22:17:21,543 - basicLogger - ERROR - Could not find buy at index 0
+2022-11-02 22:18:19,397 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:18:19,467 - basicLogger - ERROR - No more messages found
+2022-11-02 22:18:19,468 - basicLogger - ERROR - Could not find buy at index 0
+2022-11-02 22:18:56,272 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:18:56,368 - basicLogger - ERROR - No more messages found
+2022-11-02 22:19:23,061 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:19:23,130 - basicLogger - ERROR - No more messages found
+2022-11-02 22:19:23,132 - basicLogger - ERROR - Could not find buy at index 0
+2022-11-02 22:24:11,946 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:24:12,018 - basicLogger - ERROR - No more messages found
+2022-11-02 22:30:00,887 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:30:00,956 - basicLogger - ERROR - No more messages found
+2022-11-02 22:30:00,957 - basicLogger - ERROR - Could not find buy at index 0
+2022-11-02 22:32:02,985 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:32:03,057 - basicLogger - ERROR - No more messages found
+2022-11-02 22:32:03,058 - basicLogger - ERROR - Could not find buy at index 0
+2022-11-02 22:34:11,260 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:34:11,353 - basicLogger - ERROR - No more messages found
+2022-11-02 22:34:11,354 - basicLogger - ERROR - Could not find buy at index 0
+2022-11-02 22:34:40,296 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:34:40,427 - basicLogger - ERROR - No more messages found
+2022-11-02 22:35:58,689 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:36:39,182 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:37:35,088 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:38:24,057 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:40:02,356 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:41:35,805 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:42:19,776 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:43:04,461 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:43:47,849 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:44:21,685 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:46:07,201 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:46:36,227 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:47:40,279 - basicLogger - INFO - Retrieving buy at index 100
+2022-11-02 22:49:30,725 - basicLogger - INFO - Retrieving buy at index 100
+2022-11-02 22:49:30,797 - basicLogger - ERROR - No more messages found
+2022-11-02 22:49:30,798 - basicLogger - ERROR - Could not find buy at index 100
+2022-11-02 22:49:44,758 - basicLogger - INFO - Retrieving buy at index 2
+2022-11-02 22:49:44,827 - basicLogger - ERROR - No more messages found
+2022-11-02 22:49:44,827 - basicLogger - ERROR - Could not find buy at index 2
+2022-11-02 22:49:48,807 - basicLogger - INFO - Retrieving buy at index 1
+2022-11-02 22:49:48,880 - basicLogger - ERROR - No more messages found
+2022-11-02 22:49:48,881 - basicLogger - ERROR - Could not find buy at index 1
+2022-11-02 22:49:52,548 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:50:40,621 - basicLogger - INFO - Retrieving buy at index 0
+2022-11-02 22:50:44,069 - basicLogger - INFO - Retrieving buy at index 1
+2022-11-02 22:50:44,140 - basicLogger - ERROR - No more messages found
+2022-11-02 22:50:44,141 - basicLogger - ERROR - Could not find search at index 1
+2022-11-02 22:50:51,766 - basicLogger - INFO - Retrieving buy at index 0

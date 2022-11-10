@@ -1,0 +1,5 @@
+version: 1
+events:
+  hostname: acit3855-kafka-lab6a.eastus.cloudapp.azure.com
+  port: 9092
+  topic: kafka

@@ -1,0 +1,30 @@
+2022-11-02 20:18:27,235 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 20:18:27,379 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 20:21:23,191 - basicLogger - INFO - stored event buy request with a trace id of 5a70f1bb-ee34-4c74-b6c7-484674e0a466
+2022-11-02 20:21:31,294 - basicLogger - INFO - stored event buy request with a trace id of 9ded29a0-a0a0-4814-ab57-9f1bb10d8934
+2022-11-02 21:24:58,523 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 21:24:58,631 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 21:34:08,845 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 21:34:08,975 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 21:39:41,146 - basicLogger - INFO - Message: {'type': 'purchase', 'datetime': '2022-11-02T21:39:40', 'payload': {'credit_card': 1234567890123456, 'customer_id': 'd290f1ee-6c54-4b01-901', 'price': 1.99, 'purchased_date': '2016-08-29T09:12:33.001000+00:00', 'transaction_number': '3fa85f64-5717-4562', 'trace_id': 'da7fa404-a7b1-4cc0-b2f7-3bf554362167'}}
+2022-11-02 21:41:18,662 - basicLogger - INFO - Message: {'type': 'search', 'datetime': '2022-11-02T21:41:18', 'payload': {'brand_name': 'MSI232323', 'item_description': '144 hz of monitor with a curved shape monitor and have 1ms response time', 'price': 100.99, 'product_name': 'MSI monitor', 'quantity_left': 3, 'sales_price': 99.99, 'trace_id': 'bfdc6630-35d7-4730-8008-d0689b514ed3'}}
+2022-11-02 21:43:12,082 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 21:43:12,199 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 21:43:24,833 - basicLogger - INFO - Message: {'type': 'search', 'datetime': '2022-11-02T21:43:24', 'payload': {'brand_name': 'MSI232323', 'item_description': '144 hz of monitor with a curved shape monitor and have 1ms response time', 'price': 100.99, 'product_name': 'MSI monitor', 'quantity_left': 3, 'sales_price': 99.99, 'trace_id': 'd9df4990-4012-4b49-ba3e-bce513fd8022'}}
+2022-11-02 21:43:32,263 - basicLogger - INFO - Message: {'type': 'purchase', 'datetime': '2022-11-02T21:43:32', 'payload': {'credit_card': 1234567890123456, 'customer_id': 'd290f1ee-6c54-4b01-901', 'price': 1.99, 'purchased_date': '2016-08-29T09:12:33.001000+00:00', 'transaction_number': '3fa85f64-5717-4562', 'trace_id': 'fe817cea-07d0-4a91-b99d-f365e1009e6f'}}
+2022-11-02 21:47:33,996 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 21:47:34,096 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-02 21:47:51,742 - basicLogger - INFO - Message: {'type': 'purchase', 'datetime': '2022-11-02T21:47:51', 'payload': {'credit_card': 1234567890123456, 'customer_id': 'd290f1ee-6c54-4b01-901', 'price': 1.99, 'purchased_date': '2016-08-29T09:12:33.001000+00:00', 'transaction_number': '3fa85f64-5717-4562', 'trace_id': '2b578f8d-b86a-4e93-89fd-4125a32babb1'}}
+2022-11-02 21:48:02,553 - basicLogger - INFO - Message: {'type': 'search', 'datetime': '2022-11-02T21:48:02', 'payload': {'brand_name': 'MSI232323', 'item_description': '144 hz of monitor with a curved shape monitor and have 1ms response time', 'price': 100.99, 'product_name': 'MSI monitor', 'quantity_left': 3, 'sales_price': 99.99, 'trace_id': 'f8f4cc0c-19d5-4191-b57b-52a64d356e37'}}
+2022-11-03 11:49:09,289 - basicLogger - INFO - Connecting to DB, Hostname:None, Port:None
+2022-11-03 11:55:49,474 - basicLogger - INFO - Connecting to DB, Hostname:None, Port:None
+2022-11-03 11:56:42,981 - basicLogger - INFO - Connecting to DB, Hostname:None, Port:None
+2022-11-03 11:57:04,011 - basicLogger - INFO - Connecting to DB, Hostname:None, Port:3306
+2022-11-03 11:57:04,183 - basicLogger - INFO - Connecting to DB, Hostname:None, Port:3306
+2022-11-03 11:59:44,022 - basicLogger - INFO - Connecting to DB, Hostname:None, Port:3306
+2022-11-03 11:59:44,116 - basicLogger - INFO - Connecting to DB, Hostname:None, Port:3306
+2022-11-03 12:04:15,704 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-03 12:04:15,799 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-03 12:04:44,198 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-03 12:04:44,299 - basicLogger - INFO - Connecting to DB, Hostname:acit3855-kafka-lab6a.eastus.cloudapp.azure.com, Port:3306
+2022-11-03 12:04:58,726 - basicLogger - INFO - Query for purchase item after 2022-09-23T00:31:21Z returns 1 results

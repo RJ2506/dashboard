@@ -1,0 +1,118 @@
+---
+openapi: 3.0.0
+info:
+  title: Amazon Buy and search
+  description: Allows you to search for the product you want and buy it
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: users
+    description: only the user can see their own products
+paths:
+  /buy:
+    post:
+      tags:
+        - users
+      summary: purchase the item you selected
+      description: purchase the item you selected
+      operationId: app.purchase_item
+      requestBody:
+        description: purchased item
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/purchase"
+      responses:
+        "200":
+          description: Your transaction is successfull
+        "400":
+          description: invalid input, object invalid
+  /search:
+    post:
+      tags:
+        - users
+      summary: search an item that is on sale
+      description: search an item that is on sale
+      operationId: app.search_item
+      requestBody:
+        description: search for sale items
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/search"
+      responses:
+        "200":
+          description: search results matching criteria
+        "400":
+          description: invalid input, object invalid
+components:
+  schemas:
+    purchase:
+      required:
+        - credit_card
+        - customer_id
+        - price
+        - purchased_date
+        - transaction_number
+        - trace_id
+      type: object
+      properties:
+        customer_id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        credit_card:
+          maxLength: 16
+          minLength: 16
+          type: integer
+          example: 1234567891234567
+        price:
+          type: number
+          format: float
+          example: 140.99
+        transaction_number:
+          type: string
+          format: uuid
+        purchased_date:
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z
+        trace_id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01adjasdlajd
+    search:
+      required:
+        - brand_name
+        - item_description
+        - price
+        - product_name
+        - quantity_left
+        - sales_price
+        - trace_id
+      type: object
+      properties:
+        product_name:
+          type: string
+          example: MSI monitor
+        sales_price:
+          type: number
+          format: float
+          example: 99.99
+        price:
+          type: number
+          format: float
+          example: 140.99
+        item_description:
+          type: string
+          example: 144 hz of monitor with a curved shape monitor and have 1ms response time
+        quantity_left:
+          type: integer
+          example: 3
+        brand_name:
+          type: string
+          example: MSI
+        trace_id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01adjasdlajd

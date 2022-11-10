@@ -1,0 +1,162 @@
+---
+openapi: 3.0.0
+info:
+  title: Audit API
+  description: This API is for AUDIT info
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: users
+    description: only the user can see their own products
+paths:
+  /buy:
+    get:
+      summary: gets the new purchase item
+      operationId: app.get_purchase_item
+      description: gets the purchase item added after a timestamp
+      parameters:
+        - name: index
+          in: query
+          description: Gets the buy index in the event store
+          schema:
+            type: integer
+            example: 0
+      responses:
+        "200":
+          description: Successfully returned a purchase event
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/purchase"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /search:
+    get:
+      tags:
+        - devices
+      summary: gets the new purchase item
+      operationId: app.get_search_item
+      description: gets the search item added after a timestamp
+      parameters:
+        - name: index
+          in: query
+          description: Gets the index for the search event
+          schema:
+            type: integer
+            example: 0
+      responses:
+        "200":
+          description: Successfully returned a search events
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/search"
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  schemas:
+    purchase:
+      required:
+        - customer_id
+        - credit_card
+        - price
+        - purchased_date
+        - transaction_number
+        - trace_id
+      type: object
+      properties:
+        customer_id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        credit_card:
+          maxLength: 16
+          minLength: 16
+          type: integer
+          example: 1234567891234567
+        price:
+          type: number
+          format: float
+          example: 140.99
+        transaction_number:
+          type: string
+          format: uuid
+        purchased_date:
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z
+        trace_id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01adjasdlajd
+    search:
+      required:
+        - brand_name
+        - item_description
+        - price
+        - product_name
+        - quantity_left
+        - sales_price
+        - trace_id
+      type: object
+      properties:
+        product_name:
+          type: string
+          example: MSI monitor
+        sales_price:
+          type: number
+          format: float
+          example: 99.99
+        price:
+          type: number
+          format: float
+          example: 140.99
+        item_description:
+          type: string
+          example: 144 hz of monitor with a curved shape monitor and have 1ms response time
+        quantity_left:
+          type: integer
+          example: 3
+        brand_name:
+          type: string
+          example: MSI
+        trace_id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01adjasdlajd
