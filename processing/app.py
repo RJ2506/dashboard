@@ -81,6 +81,7 @@ def populate_stats():
         for item in search_data:
             search_price.append(float(item['price']))
         
+        print('buy price:',len(buy_price))
         if len(buy_price) != 0 and len(search_price) != 0:
             bs = Stats(
                 len(buy_price),
