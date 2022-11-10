@@ -139,13 +139,13 @@ def process_messages():
                     session.add(sp)
                     session.commit()
                     session.close()
+            consumer.commit_offsets()
         except:
             logger.error('connection fail')
             time.sleep(5)
            
             count += 1
             # Commit the new message as being read
-        consumer.commit_offsets()
 
     return 200
 
