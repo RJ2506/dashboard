@@ -68,7 +68,7 @@ def populate_stats():
         buy_data = res_buy.json()
         buy_price = []
        
-        print(buy_data)
+        
         for item in buy_data:
             buy_price.append(float(item['price']))
         
@@ -90,8 +90,8 @@ def populate_stats():
         )
         
         session.add(bs)
-        session.commit()
-        session.close()
+    session.commit()
+    session.close()
     return NoContent, 201
 
 def init_scheduler():
