@@ -22,31 +22,30 @@ logger = logging.getLogger("basicLogger")
 
 def get_purchase_item(index):
     """purchase the item you selected"""
-    server = f'{app_config["events"]["hostname"]}:{app_config["events"]["port"]}'
-    client = KafkaClient(hosts=server)
+    hostname = "%s:%d" % (app_config["events"]["hostname"],app_config["events"]["port"])
+    client = KafkaClient(hosts=hostname)
     topic = client.topics[str.encode(app_config["events"]["topic"])]
     # Here we reset the offset on start so that we retrieve
     # messages at the beginning of the message queue.
     # To prevent the for loop from blocking, we set the timeout to
     # 100ms. There is a risk that this loop never stops if the
     # index is large and messages are constantly being received!
-    consumer = topic.get_simple_consumer(reset_offset_on_start=True,consumer_timeout_ms=1000)
-
-    logger.info("Retrieving buy at index %d" % index)
+    consumer = topic.get_simple_consumer(consumer_group=b'event_group',reset_offset_on_start=False,consumer_timeout_ms=1000)
     i = 0
     try:
         for msg in consumer:
             msg_str = msg.value.decode('utf-8')
             msg = json.loads(msg_str)
+            payload = msg["payload"]       
             if msg["type"] == "purchase":
                 if i == index:
-                    return msg['payload'], 201
+                    return payload, 201
             i += 1
-            
+                
     except:
         logger.error("No more messages found")
-
-   
+  
+ 
     
     logger.error("Could not find buy at index %d" % index)
 
@@ -69,9 +68,10 @@ def get_search_item(index):
         for msg in consumer:
             msg_str = msg.value.decode('utf-8')
             msg = json.loads(msg_str)
+            payload = msg["payload"] 
             if msg["type"] == "search":
                 if i == index:
-                    return msg['payload'], 201
+                    return payload, 201
             i += 1
     except:
         logger.error("No more messages found")
