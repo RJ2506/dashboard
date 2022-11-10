@@ -86,6 +86,19 @@ services:
       - "8110:8110"
     depends_on:
       - "kafka"
+  
+  dashboard:
+    build: ../dashboard-ui
+    image: dashboard:latest
+    restart: always
+    container_name: dashboard
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    depends_on:
+      - "processing"
+      - "audit"
 
 # Names our volume
 volumes:
