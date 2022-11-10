@@ -73,6 +73,7 @@ def populate_stats():
         
         for item in buy_data:
             buy_price.append(float(item['price']))
+            print('buy price:', buy_price)
         
         res_search = requests.get(app_config['eventstore']['url'] + "/" + "search" + "?timestamp="+ last_updated_format)
         search_data = res_search.json()
@@ -81,9 +82,8 @@ def populate_stats():
         for item in search_data:
             search_price.append(float(item['price']))
         
-        print('buy price:',len(buy_price))
         print('search price:',len(search_price))
-        
+
         if len(buy_price) != 0 and len(search_price) != 0:
             bs = Stats(
                 len(buy_price),
@@ -97,7 +97,7 @@ def populate_stats():
             
             session.add(bs)
             session.commit()
-            session.close()
+        session.close()
     return NoContent, 201
 
 def init_scheduler():
