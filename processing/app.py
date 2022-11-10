@@ -73,7 +73,7 @@ def populate_stats():
         
         for item in buy_data:
             buy_price.append(float(item['price']))
-            print('buy price:', buy_price)
+            
         
         res_search = requests.get(app_config['eventstore']['url'] + "/" + "search" + "?timestamp="+ last_updated_format)
         search_data = res_search.json()
@@ -82,16 +82,24 @@ def populate_stats():
         for item in search_data:
             search_price.append(float(item['price']))
         
-        print('search price:',len(search_price))
+        max_buy = max(buy_price)
+        max_search = max(search_price)
+        min_buy = min(buy_price)
+        min_search = min(search_price)
 
+        if max_buy < result.max_buy_reading:
+            max_buy = result.max_buy_reading
+        if max_search < result.max_search_reading:
+            max_search = result.max_search_reading
     
+
         bs = Stats(
             result.num_buy_readings + len(buy_price),
             result.num_search_readings + len(search_price),
-            max(buy_price),
-            max(search_price),
-            min(buy_price),
-            min(search_price),
+            max_buy,
+            max_search,
+            min_buy,
+            min_search,
             time
         )
         
