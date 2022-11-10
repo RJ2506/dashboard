@@ -84,20 +84,20 @@ def populate_stats():
         
         print('search price:',len(search_price))
 
-        if len(buy_price) != 0 and len(search_price) != 0:
-            bs = Stats(
-                result.num_buy_readings + len(buy_price),
-                result.num_search_readings + len(search_price),
-                max(buy_price),
-                max(search_price),
-                min(buy_price),
-                min(search_price),
-                time
-            )
-            
-            session.add(bs)
-            session.commit()
-        session.close()
+    
+        bs = Stats(
+            result.num_buy_readings + len(buy_price),
+            result.num_search_readings + len(search_price),
+            max(buy_price),
+            max(search_price),
+            min(buy_price),
+            min(search_price),
+            time
+        )
+        
+        session.add(bs)
+    session.commit()
+    session.close()
     return NoContent, 201
 
 def init_scheduler():
