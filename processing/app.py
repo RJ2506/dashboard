@@ -82,13 +82,13 @@ def populate_stats():
             search_price.append(float(item['price']))
         
         bs = Stats(
-        len(buy_price),
-        len(search_price),
-        max(buy_price),
-        max(search_price),
-        min(buy_price),
-        min(search_price),
-        time
+            len(buy_price),
+            len(search_price),
+            max(buy_price),
+            max(search_price),
+            min(buy_price),
+            min(search_price),
+            time
         )
         
         session.add(bs)
