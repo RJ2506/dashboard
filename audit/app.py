@@ -70,8 +70,9 @@ def get_search_item(index):
             msg = json.loads(msg_str)
             if i == index:
                 return msg['payload'], 201
-            else:
+            elif index > len(consumer):
                 raise ValueError
+                
     except:
         logger.error("No more messages found")
 
