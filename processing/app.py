@@ -86,8 +86,8 @@ def populate_stats():
 
         if len(buy_price) != 0 and len(search_price) != 0:
             bs = Stats(
-                len(buy_price),
-                len(search_price),
+                result.num_buy_readings + len(buy_price),
+                result.num_search_readings + len(search_price),
                 max(buy_price),
                 max(search_price),
                 min(buy_price),
