@@ -12,6 +12,8 @@ services:
     command: [start-kafka.sh]
     ports:
       - "9092:9092"
+    expose:
+      - "9092"
     hostname: kafka
     environment:
       KAFKA_CREATE_TOPICS: "events:1:1" # topic:partition:replicas
