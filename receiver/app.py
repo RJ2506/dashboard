@@ -59,7 +59,7 @@ def search_item(body):
     body["trace_id"] = trace
     count = 0
 
-    # logging.info(f"Returned event search response {trace}")
+    logger.info(f"Returned event search response {trace}")
     # res = requests.post(
     #     "http://localhost:8090/search",
     #     json.dumps(body),
