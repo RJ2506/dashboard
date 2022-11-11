@@ -16,7 +16,9 @@ paths:
       operationId: app.get_purchase_item
       description: gets the purchase item added after a timestamp
       parameters:
-        - name: timestamp
+        name: 
+          - start_timestamp
+          - end_timestamp
           in: query
           description: Limits the number of items on a page
           schema:
@@ -49,7 +51,9 @@ paths:
       operationId: app.get_search_item
       description: gets the search item added after a timestamp
       parameters:
-        - name: timestamp
+        name: 
+          - start_timestamp
+          - end_timestamp
           in: query
           description: Limits the number of items on a page
           schema:
