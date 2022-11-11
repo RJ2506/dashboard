@@ -67,7 +67,7 @@ def get_search_item(index):
         # To prevent the for loop from blocking, we set the timeout to
         # 100ms. There is a risk that this loop never stops if the
         # index is large and messages are constantly being received!
-        consumer = topic.get_simple_consumer(consumer_group=b'event_group',reset_offset_on_start=True,consumer_timeout_ms=1000)
+        consumer = topic.get_simple_consumer(reset_offset_on_start=True,consumer_timeout_ms=1000)
 
         logger.info("Retrieving buy at index %d" % index)
         i = 0
