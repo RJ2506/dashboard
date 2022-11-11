@@ -48,7 +48,6 @@ services:
   receiver:
     build: ../receiver
     image: receiver:latest
-    restart: always
     container_name: receiver
     ports:
       - "8080:8080"
@@ -58,7 +57,6 @@ services:
   storage:
     build: ../storage
     image: storage:latest
-    restart: always
     container_name: storage
     ports:
       - "8090:8090"
@@ -69,7 +67,6 @@ services:
   processing:
     build: ../processing
     image: processing:latest
-    restart: always
     container_name: processing
     ports:
       - "8100:8100"
@@ -80,7 +77,6 @@ services:
   audit:
     build: ../audit
     image: audit:latest
-    restart: always
     container_name: audit
     ports:
       - "8110:8110"
@@ -90,7 +86,6 @@ services:
   dashboard:
     build: ../dashboard-ui
     image: dashboard:latest
-    restart: always
     container_name: dashboard
     ports:
       - "3000:3000"
