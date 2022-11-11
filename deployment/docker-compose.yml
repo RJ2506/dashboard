@@ -4,9 +4,9 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181"
-    hostname: zookeeper
     volumes:
       - /home/kafka/zookeeper/data:/opt/zookeeper-3.4.13/data
+    hostname: zookeeper
   kafka:
     image: wurstmeister/kafka
     command: [start-kafka.sh]
