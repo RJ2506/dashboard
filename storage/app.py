@@ -6,6 +6,7 @@ from connexion import NoContent
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import and_
 from base import Base
 from search import SearchProducts
 from buy import BuyingProducts
@@ -43,11 +44,15 @@ DB_ENGINE = create_engine(
 Base.metadata.bind = DB_ENGINE
 DB_SESSION = sessionmaker(bind=DB_ENGINE)
 
-def get_purchase_item(timestamp):
+def get_purchase_item(start_timestamp, end_timestamp):
     """get the  timestamp of the purchase tiem"""
     session = DB_SESSION()
-    timestamp_datetime = datetime.datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ")
-    readings = session.query(BuyingProducts).filter(BuyingProducts.date_created >= timestamp_datetime)
+    start_timestamp_datetime = datetime.datetime.strptime(start_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+    end_timestamp_datetime = datetime.datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+    readings = session.query(BuyingProducts).filter(
+        and_(BuyingProducts.date_created >= start_timestamp_datetime,
+        BuyingProducts.date_created < end_timestamp_datetime)
+    )
 
     results_list = []
 
@@ -58,17 +63,19 @@ def get_purchase_item(timestamp):
     session.close()
     logger.info(
         "Query for purchase item after %s returns %d results"
-        % (timestamp, len(results_list))
+        % (start_timestamp, end_timestamp,len(results_list))
     )
 
     return results_list, 200
 
-def get_search_item(timestamp):
+def get_search_item(start_timestamp, end_timestamp):
     """get the  timestamp of the purchase tiem"""
     session = DB_SESSION()
-    timestamp_datetime = datetime.datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ")
+    start_timestamp_datetime = datetime.datetime.strptime(start_timestamp, "%Y-%m-%dT%H:%M:%SZ")
+    end_timestamp_datetime = datetime.datetime.strptime(end_timestamp, "%Y-%m-%dT%H:%M:%SZ")
     readings = session.query(SearchProducts).filter(
-        SearchProducts.date_created >= timestamp_datetime
+        and_(SearchProducts.date_created >= start_timestamp_datetime,
+        SearchProducts.date_created < end_timestamp_datetime)
     )
 
     results_list = []
@@ -79,7 +86,7 @@ def get_search_item(timestamp):
 
     logger.info(
         "Query for Search Items after %s returns %d results"
-        % (timestamp, len(results_list))
+        % (start_timestamp,end_timestamp, len(results_list))
     )
 
     return results_list, 200
