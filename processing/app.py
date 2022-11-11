@@ -66,7 +66,10 @@ def populate_stats():
     else:
         last_updated = result.last_updated
         last_updated_format = str(last_updated.strftime("%Y-%m-%dT%H:%M:%SZ"))
-        res_buy = requests.get(app_config['eventstore']['url'] + "/" + "buy" + "?timestamp="+ last_updated_format)
+        current_time_format = str(time.strftime("%Y-%m-%dT%H:%M:%SZ"))
+        res_buy = requests.get(
+            app_config['eventstore']['url'] + "/" + "buy" + "?start_timestamp=" + last_updated_format + "&end_timestamp=" + current_time_format
+            )
         buy_data = res_buy.json()
         buy_price = []
         
@@ -75,7 +78,9 @@ def populate_stats():
             buy_price.append(float(item['price']))
             
         
-        res_search = requests.get(app_config['eventstore']['url'] + "/" + "search" + "?timestamp="+ last_updated_format)
+        res_search = requests.get(
+            app_config['eventstore']['url'] + "/" + "search" + "?start_timestamp=" + last_updated_format + "&end_timestamp=" + current_time_format
+            )
         search_data = res_search.json()
         search_price = []
         
