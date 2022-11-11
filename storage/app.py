@@ -63,7 +63,7 @@ def get_purchase_item(start_timestamp, end_timestamp):
     session.close()
     logger.info(
         "Query for purchase item after %s returns %d results"
-        % (start_timestamp, end_timestamp,len(results_list))
+        % (start_timestamp,len(results_list))
     )
 
     return results_list, 200
@@ -86,7 +86,7 @@ def get_search_item(start_timestamp, end_timestamp):
 
     logger.info(
         "Query for Search Items after %s returns %d results"
-        % (start_timestamp,end_timestamp, len(results_list))
+        % (start_timestamp, len(results_list))
     )
 
     return results_list, 200
