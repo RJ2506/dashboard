@@ -16,15 +16,20 @@ paths:
       operationId: app.get_purchase_item
       description: gets the purchase item added after a timestamp
       parameters:
-        name: 
-          - start_timestamp
-          - end_timestamp
+        - name: start_timestamp
           in: query
           description: Limits the number of items on a page
           schema:
             type: string
             format: date-time
-            example: 2016-08-29T09:12:33.001Z
+            example: 2016-08-29T09:12:33Z
+        - name: end_timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: date-time
+            example: 2016-08-29T09:12:33Z
       responses:
         "200":
           description: Successfully returned a list of purchase items
@@ -51,9 +56,14 @@ paths:
       operationId: app.get_search_item
       description: gets the search item added after a timestamp
       parameters:
-        name: 
-          - start_timestamp
-          - end_timestamp
+        - name: start_timestamp
+          in: query
+          description: Limits the number of items on a page
+          schema:
+            type: string
+            format: date-time
+            example: 2016-08-29T09:12:33Z
+        - name: end_timestamp
           in: query
           description: Limits the number of items on a page
           schema:
