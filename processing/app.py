@@ -75,8 +75,18 @@ def populate_stats():
         
         
         for item in buy_data:
+            print(item['price'])
             buy_price.append(float(item['price']))
             
+        if len(buy_price) != 0:
+            max_buy = max(buy_price)
+            min_buy = min(buy_price)
+        else:
+            max_buy = 0
+            min_buy = 0
+
+        if max_buy < result.max_buy_reading:
+            max_buy = result.max_buy_reading
         
         res_search = requests.get(
             app_config['eventstore']['url'] + "/" + "search" + "?start_timestamp=" + last_updated_format + "&end_timestamp=" + current_time_format
@@ -86,12 +96,7 @@ def populate_stats():
         
         for item in search_data:
             search_price.append(float(item['price']))
-        if len(buy_price) != 0:
-            max_buy = max(buy_price)
-            min_buy = min(buy_price)
-        else:
-            max_buy = 0
-            min_buy = 0
+            
         
         if len(search_price) != 0:
             max_search = max(search_price)
@@ -99,8 +104,7 @@ def populate_stats():
         else:
             max_search = 0
             min_search = 0
-        if max_buy < result.max_buy_reading:
-            max_buy = result.max_buy_reading
+
         if max_search < result.max_search_reading:
             max_search = result.max_search_reading
     
